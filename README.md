@@ -1,2 +1,3 @@
-# now-we-feast
-Simple stack, Airflow, Feast, FastAPI
+# Overview
+
+Simple stack of Airflow, Feast, FastAPI
