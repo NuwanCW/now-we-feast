@@ -6,8 +6,13 @@ from feast import FeatureStore
 # The entity dataframe is the dataframe we want to enrich with feature values
 entity_df = pd.DataFrame.from_dict(
     {
+        # entity's join key -> entity values
         "driver_id": [1001, 1002, 1003],
+
+        # label name -> label values
         "label_driver_reported_satisfaction": [1, 5, 3], 
+
+        # "event_timestamp" (reserved key) -> timestamps
         "event_timestamp": [
             datetime.now() - timedelta(minutes=11),
             datetime.now() - timedelta(minutes=36),
@@ -16,7 +21,7 @@ entity_df = pd.DataFrame.from_dict(
     }
 )
 
-store = FeatureStore(repo_path=".")
+store = FeatureStore(repo_path="./feature_repo")
 
 training_df = store.get_historical_features(
     entity_df=entity_df,
