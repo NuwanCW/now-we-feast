@@ -11,7 +11,7 @@ Poetry is used to manage dependencies. Let's get our feature store stood up and 
 ``` -->
 
 ```bash
-  docker compose up redis -d
+  docker compose up redis -d --build
   poetry install
   cd feature_repo
   poetry run feast apply
