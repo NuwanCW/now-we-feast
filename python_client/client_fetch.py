@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from feast import FeatureStore
 from pyinstrument import Profiler
 
@@ -20,3 +22,4 @@ feature_vector = store.get_online_features(
 ).to_dict()
 profiler.stop()
 profiler.print()
+pprint(feature_vector)
