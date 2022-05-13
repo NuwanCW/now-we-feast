@@ -1,8 +1,11 @@
-from pprint import pprint
 from feast import FeatureStore
+from pyinstrument import Profiler
 
 store = FeatureStore(repo_path="./feature_repo")
+profiler = Profiler()
 
+# Profiler start
+profiler.start()
 feature_vector = store.get_online_features(
     features=[
         "driver_hourly_stats:conv_rate",
@@ -15,5 +18,5 @@ feature_vector = store.get_online_features(
         {"driver_id": 1005},
     ],
 ).to_dict()
-
-pprint(feature_vector)
+profiler.stop()
+profiler.print()
